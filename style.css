@@ -9,14 +9,34 @@ section {
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%;
     height: 100vh;
-    background: url("https://png.pngtree.com/thumb_back/fh260/background/20230704/pngtree-d-illustration-of-weather-icons-featuring-sun-and-clouds-for-forecast-image_3738980.jpg") no-repeat center/cover;
+    background: fixed no-repeat center/cover;
+    animation: changebg 20s ease-in-out infinite;
+}
+
+@keyframes changebg {
+    0% {
+        background-image: url("https://wallpapers.com/images/hd/rain-desktop-wmfhwomu4z9gyngu.jpg");
+    }
+
+    33% {
+        background-image: url("https://img.lovepik.com/background/20211021/large/lovepik-weather-forecast-background-image_401544608.jpg");
+    }
+
+    66% {
+        background-image: url("https://img.freepik.com/free-photo/field-covered-greenery-cloudy-sky-beautiful-sunset-evening_181624-13767.jpg?semt=ais_hybrid&w=740&q=80");
+    }
+
+    100% {
+        background-image: url("https://img.lovepik.com/background/20211021/large/lovepik-weather-forecast-background-image_401544608.jpg");
+    }
 }
 
 section::before {
     position: absolute;
     content: "";
-    background-color: rgba(10, 10, 10, 0.232);
+    background-color: rgba(54, 53, 53, 0.439);
     height: 100vh;
     width: 100%;
 }
@@ -24,15 +44,19 @@ section::before {
 .container {
     position: absolute;
     z-index: 10;
-    width: 400px;
-    height: 400px;
+    max-width: 380px;
+    height: 450px;
     border-radius: 20px;
-    background-color: white;
+    backdrop-filter: blur(10px);
+    background: rgba(159, 156, 156, 0.3);
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-}
 
+}
+.container h2{
+    margin: 15px 0;
+}
 .weatherinput {
     height: 150px;
     width: 100%;
@@ -40,7 +64,6 @@ section::before {
     flex-direction: column;
     gap: 20px;
     align-items: center;
-    justify-content: center;
 }
 
 .weatherinput input {
@@ -48,11 +71,55 @@ section::before {
     width: 250px;
 }
 
+.weatherinput input:focus {
+    box-shadow: 0 0 15px 10px rgba(0, 234, 255, 0.27);
+    outline: none;
+    border: none;
+}
+
 .weatherinput button {
     padding: 10px;
     width: 100px;
     background: none;
     border: none;
-    outline: 1px solid rgba(128, 128, 128, 0.465);
+    outline: 1px solid rgba(44, 43, 43, 0.465);
     color: rgb(2, 2, 2);
+    transition: all 0.5s;
+}
+
+.weatherinput button:hover {
+    background: radial-gradient(circle, rgba(186, 186, 186, 1) 0%, rgba(148, 187, 233, 1) 65%);
+    cursor: pointer;
+}
+
+.weatherresult {
+    margin: 0 0 0 20px;
+}
+
+.weatherresult h3 {
+    padding: 8px;
+}
+
+.weatherresult p {
+    padding: 8px;
+}
+
+.resultcontainer {
+    width: 250px;
+    transition: all 0.2s
+}
+
+@media (max-width:768px) {
+    .container {
+    position: absolute;
+    z-index: 10;
+    width: 300px;
+    height: 450px;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    background: rgba(159, 156, 156, 0.3);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
 }
