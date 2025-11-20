@@ -1,0 +1,58 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+section {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: url("https://png.pngtree.com/thumb_back/fh260/background/20230704/pngtree-d-illustration-of-weather-icons-featuring-sun-and-clouds-for-forecast-image_3738980.jpg") no-repeat center/cover;
+}
+
+section::before {
+    position: absolute;
+    content: "";
+    background-color: rgba(10, 10, 10, 0.232);
+    height: 100vh;
+    width: 100%;
+}
+
+.container {
+    position: absolute;
+    z-index: 10;
+    width: 400px;
+    height: 400px;
+    border-radius: 20px;
+    background-color: white;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.weatherinput {
+    height: 150px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+}
+
+.weatherinput input {
+    padding: 10px;
+    width: 250px;
+}
+
+.weatherinput button {
+    padding: 10px;
+    width: 100px;
+    background: none;
+    border: none;
+    outline: 1px solid rgba(128, 128, 128, 0.465);
+    color: rgb(2, 2, 2);
+}
