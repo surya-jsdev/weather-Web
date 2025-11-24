@@ -3,7 +3,7 @@ const searchbtn = document.getElementById("searchbtn");
 searchbtn.addEventListener("click", () => {
     const cityname = document.getElementById("cityname").value.trim();
     if (!cityname) {
-        document.getElementById("weatherResult").innerHTML =`<p>Please Enter City</p>`;
+        document.getElementById("weatherResult").innerHTML = `<p>Please Enter City</p>`;
         return;
     }
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${cityname}&appid=6dae0c680675edcbd02e5e03d95b8a81&units=metric`;
@@ -11,8 +11,6 @@ searchbtn.addEventListener("click", () => {
         .then(res => res.json())
 
         .then(data => {
-            console.log(data);
-
             if (data.cod != 200) {
                 document.getElementById("weatherResult").innerHTML =
                     `<p>Error: ${data.error}</p>`;
