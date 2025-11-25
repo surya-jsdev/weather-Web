@@ -104,7 +104,10 @@ section::before {
 .weatherresult p {
     padding: 8px;
 }
-
+.weatherresult img{
+    width: 50px;
+    height: 50px;
+}
 .resultcontainer {
     width: 250px;
     transition: all 0.2s
